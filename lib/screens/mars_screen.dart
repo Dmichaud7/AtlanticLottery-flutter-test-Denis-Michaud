@@ -8,20 +8,24 @@ class MarsScreen extends StatefulWidget {
   @override
   _MarsScreenState createState() => _MarsScreenState();
 }
-
 class _MarsScreenState extends State<MarsScreen> {
+
   Future<Planets> fetchMars() async {
-    String url = "https://neonfish.net/mars_api.json";
-    var response =
-        await http.get(Uri.parse(url), headers: {"Accept": "application/json"});
-    print(response.statusCode);
-    if (response.statusCode == 200) {
-      var a =Planets.fromJson(jsonDecode(response.body));
-      print(a);
-      return Planets.fromJson(jsonDecode(response.body));
-    } else {
-      throw Exception('Failed to load Mars');
-    } 
+    try{
+      String url = "https://neonfish.net/mars_api.json";
+      var response =
+          await http.get(Uri.parse(url), headers: {"Accept": "application/json"});
+
+      if (response.statusCode == 200) {
+        var a =Planets.fromJson(jsonDecode(response.body));
+        print(a);
+        return Planets.fromJson(jsonDecode(response.body));
+      } else {
+        throw Exception('Failed to load Mars');
+      } 
+    }catch(err){
+      throw Exception(err);
+    }
   }
 
   late Future<Planets> futurePlanets;
