@@ -42,8 +42,10 @@ class _MarsScreenState extends State<MarsScreen> {
         future: futurePlanets,
         builder: (context, snapshot) {
          if(snapshot.hasData){
-           return Column( 
-             children: <Widget>[
+           return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+             children: <Widget>[            
                 Container(child:Image.network(snapshot.data!.image)),
                 Container(child:Text(snapshot.data!.name)),
                 Container(child: Visibility(visible: _isVisible, child: Text("Distance from earth to sun: " + snapshot.data!.distanceToSun),),),
@@ -57,7 +59,6 @@ class _MarsScreenState extends State<MarsScreen> {
          }else if (snapshot.hasError){
            return Text('${snapshot.error}');
          }
-
          return const CircularProgressIndicator();
       },),  
     );
