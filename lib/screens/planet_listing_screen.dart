@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/planet_listing_model.dart';
-// import 'package:flutter_application_1/models/planet_model.dart';
-// import 'package:flutter_application_1/widgets/planet_display.dart';
 import 'package:flutter_application_1/widgets/todays_display.dart';
 import 'package:intl/intl.dart';
 
