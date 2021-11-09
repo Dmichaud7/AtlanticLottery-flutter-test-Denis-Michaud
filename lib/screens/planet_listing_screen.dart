@@ -33,6 +33,7 @@ class _PlanetListingScreenState extends State<PlanetListingScreen> with TickerPr
     DateTime dt = DateTime.parse(model.getFormattedDate());
     String formattedDate = DateFormat('MM dd yyyy').format(dt);
     PlanetListingModel planetListingModel = PlanetListingModel();
+    planetListingModel.filterPlanetDecendingOrderByRadius(planetListingModel.planetsList);
    
     return Scaffold(
       body: Column(
